@@ -3,15 +3,16 @@ import HomePage from "../pages/HomePage";
 import AddBlog from "../pages/AddBlog";
 import AllBlogs from "../pages/AllBlogs";
 import Home from "../components/Home";
+import FeaturedBlogs from "../pages/FeaturedBlogs";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage></HomePage>,
+    element: <Home></Home>,
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <HomePage></HomePage>,
       },
       {
         path: "/addBlog",
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/allBlogs",
         element: <AllBlogs></AllBlogs>,
+      },
+      {
+        path: "/featuredBlogs",
+        element: <FeaturedBlogs></FeaturedBlogs>,
       },
     ],
   },
