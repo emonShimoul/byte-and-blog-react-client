@@ -1,7 +1,14 @@
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import { useState } from "react";
 
 const Login = () => {
+  const { googleLogin, setUser } = useAuth();
+  const [error, setError] = useState({});
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -11,8 +18,15 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-    // Replace this with real Google login logic
-    console.log("Logging in with Google");
+    googleLogin()
+      .then((result) => {
+        setUser(result.user);
+
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
   };
 
   return (
