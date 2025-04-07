@@ -19,6 +19,16 @@ const Navbar = () => {
       <li>
         <Link to="/">Wishlist</Link>
       </li>
+      <li>
+        <Link to="/login" className="lg:ms-6 underline">
+          Login
+        </Link>
+      </li>
+      <li>
+        <Link to="/register" className="underline">
+          Register
+        </Link>
+      </li>
     </>
   );
 
