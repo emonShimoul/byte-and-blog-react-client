@@ -1,4 +1,5 @@
 import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const handleSubmit = (e) => {
@@ -81,9 +82,9 @@ const Login = () => {
         </form>
         <p className="text-center text-sm text-gray-600 mt-4">
           Don’t have an account?{" "}
-          <a href="#" className="text-blue-600 hover:underline">
+          <Link to="/register" className="text-blue-600 hover:underline">
             Sign up
-          </a>
+          </Link>
         </p>
       </div>
     </div>
