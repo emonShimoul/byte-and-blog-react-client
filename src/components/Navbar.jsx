@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user, logOut } = useAuth();
   const navlinks = (
     <>
       <li>
@@ -29,13 +29,13 @@ const Navbar = () => {
             <img
               src={user?.photoURL}
               alt="User"
-              className="w-14 rounded-full cursor-pointer"
+              className="w-14 h-14 rounded-full cursor-pointer"
               title={user?.displayName}
             />
           </li>
           <li className="flex justify-center items-center">
             <button
-              // onClick={""}
+              onClick={logOut}
               className="btn btn-sm btn-warning text-black font-semibold"
             >
               Logout
