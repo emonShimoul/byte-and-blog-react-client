@@ -4,7 +4,7 @@ import useAuth from "../hooks/useAuth";
 import { useState } from "react";
 
 const Login = () => {
-  const { googleLogin, setUser } = useAuth();
+  const { googleLogin, setUser, userLogin } = useAuth();
   const [error, setError] = useState({});
   const location = useLocation();
   const navigate = useNavigate();
@@ -14,7 +14,34 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
+
+    userLogin(email, password)
+      .then((result) => {
+        // update the last login time
+        const lastSignInTime = result?.user?.metadata?.lastSignInTime;
+        const loginInfo = { email, lastSignInTime };
+
+        fetch(`http://localhost:5000/users`, {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(loginInfo),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("Sign in data updated in the db", data);
+          });
+
+        const user = result.user;
+        setUser(user);
+
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((err) => {
+        setError({ ...error, login: err.message });
+      });
   };
 
   const handleGoogleLogin = () => {
@@ -81,6 +108,9 @@ const Login = () => {
               className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               required
             />
+            {error.login && (
+              <p className="text-red-600 font-bold my-2">{error.login}</p>
+            )}
           </div>
           <div className="text-right">
             <a href="#" className="text-sm text-blue-600 hover:underline">
