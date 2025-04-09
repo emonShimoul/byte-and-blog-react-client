@@ -6,6 +6,7 @@ import Home from "../components/Home";
 import FeaturedBlogs from "../pages/FeaturedBlogs";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <h1>Error</h1>,
+    element: <NotFound></NotFound>,
   },
 ]);
 
