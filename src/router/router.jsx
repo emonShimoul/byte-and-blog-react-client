@@ -7,6 +7,7 @@ import FeaturedBlogs from "../pages/FeaturedBlogs";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/featuredBlogs",
-        element: <FeaturedBlogs></FeaturedBlogs>,
+        element: (
+          <PrivateRoute>
+            <FeaturedBlogs></FeaturedBlogs>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",

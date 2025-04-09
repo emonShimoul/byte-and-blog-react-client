@@ -6,7 +6,7 @@ const FeaturedBlogs = () => {
   return (
     <div>
       <h2>Featured Blogs</h2>
-      <p>Hello, {user}</p>
+      <p>Hello, {user?.displayName}</p>
     </div>
   );
 };
