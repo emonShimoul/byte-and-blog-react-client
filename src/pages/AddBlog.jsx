@@ -1,10 +1,40 @@
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+
 const AddBlog = () => {
+  const navigate = useNavigate();
   const categories = ["Technology", "Travel", "Food", "Lifestyle", "Education"];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted..");
-    // You can replace this with an API call
+    const form = e.target;
+    const title = form.title.value;
+    const imageUrl = form.imageUrl.value;
+    const category = form.category.value;
+    const shortDesc = form.shortDesc.value;
+    const longDesc = form.longDesc.value;
+
+    const newBlog = { title, imageUrl, category, shortDesc, longDesc };
+
+    fetch("http://localhost:5000/blogs", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newBlog),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success",
+            text: "Blog added successfully!!",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+          navigate("/allBlogs");
+        }
+      });
   };
 
   return (
