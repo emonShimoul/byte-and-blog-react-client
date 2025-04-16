@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const AllBlogs = () => {
   const [blogs, setBlogs] = useState([]);
+  const { user } = useAuth();
+  // console.log(user);
+
   const [categories, setCategories] = useState([
     "All",
     "Technology",
@@ -33,13 +38,28 @@ const AllBlogs = () => {
     }
   };
 
-  const handleWishlist = async (blogId) => {
-    try {
-      await axios.post(`/api/wishlist`, { blogId });
-      alert("Blog added to wishlist!");
-    } catch (error) {
-      console.error("Error adding to wishlist:", error);
-    }
+  const handleWishlist = async (blogId, userEmail) => {
+    fetch("http://localhost:5000/wishlist", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ blogId, userEmail }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success",
+            text: "Blog added to wishlist!",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+          // navigate("/allBlogs");
+        }
+      });
   };
 
   return (
@@ -91,7 +111,7 @@ const AllBlogs = () => {
                   Details
                 </Link>
                 <button
-                  onClick={() => handleWishlist(blog._id)}
+                  onClick={() => handleWishlist(blog._id, user?.email)}
                   className="bg-pink-600 text-white px-4 py-1 rounded hover:bg-pink-700 text-sm"
                 >
                   Add to Wishlist
