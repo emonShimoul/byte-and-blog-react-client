@@ -9,6 +9,7 @@ import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
 import PrivateRoute from "./PrivateRoute";
 import BlogDetails from "../pages/BlogDetails";
+import UpdateBlog from "../pages/UpdateBlog";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,14 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/blog/${params.id}`),
+      },
+      {
+        path: "updateBlog/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateBlog></UpdateBlog>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/featuredBlogs",

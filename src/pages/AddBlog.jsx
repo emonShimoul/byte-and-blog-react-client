@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 
 const AddBlog = () => {
+  const { user } = useAuth();
   const navigate = useNavigate();
   const categories = ["Technology", "Travel", "Food", "Lifestyle", "Education"];
 
@@ -13,8 +15,16 @@ const AddBlog = () => {
     const category = form.category.value;
     const shortDesc = form.shortDesc.value;
     const longDesc = form.longDesc.value;
+    const blogEmail = user?.email;
 
-    const newBlog = { title, imageUrl, category, shortDesc, longDesc };
+    const newBlog = {
+      title,
+      imageUrl,
+      category,
+      shortDesc,
+      longDesc,
+      blogEmail,
+    };
 
     fetch("http://localhost:5000/blogs", {
       method: "POST",
