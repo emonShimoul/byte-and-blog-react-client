@@ -58,6 +58,12 @@ const AllBlogs = () => {
             confirmButtonText: "Cool",
           });
           // navigate("/allBlogs");
+        } else {
+          Swal.fire({
+            icon: "info",
+            title: "Oops...",
+            text: data.message || "This blog is already in your wishlist!",
+          });
         }
       });
   };

@@ -19,7 +19,7 @@ const Navbar = () => {
         <Link to="/featuredBlogs">Featured Blogs</Link>
       </li>
       <li>
-        <Link to="/">Wishlist</Link>
+        <Link to="/wishlist">Wishlist</Link>
       </li>
 
       {user && user?.email ? (
