@@ -45,6 +45,8 @@ const router = createBrowserRouter([
             <UpdateBlog></UpdateBlog>
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/blog/${params.id}`),
       },
       {
         path: "/featuredBlogs",

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const BlogDetails = () => {
@@ -8,7 +8,7 @@ const BlogDetails = () => {
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState("");
   //   const navigate = useNavigate();
-  console.log(blogInfo);
+  //   console.log(blogInfo);
 
   useEffect(() => {
     const fetchComments = async () => {
