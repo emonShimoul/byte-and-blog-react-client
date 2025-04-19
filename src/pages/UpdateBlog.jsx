@@ -1,16 +1,45 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateBlog = () => {
   const blogDetails = useLoaderData();
+  const navigate = useNavigate();
   console.log(blogDetails);
   const categories = ["Technology", "Travel", "Food", "Lifestyle", "Education"];
 
-  const { category, imageUrl, longDesc, shortDesc, title } = blogDetails;
+  const { _id, title, category, imageUrl, longDesc, shortDesc } = blogDetails;
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    // const form = e.target;
+    const form = e.target;
+    const title = form.title.value;
+    const category = form.category.value;
+    const imageUrl = form.imageUrl.value;
+    const longDesc = form.longDesc.value;
+    const shortDesc = form.shortDesc.value;
+
+    const updatedBlogInfo = { title, category, imageUrl, longDesc, shortDesc };
+
+    fetch(`http://localhost:5000/blog/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedBlogInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: "Success!",
+            text: "Blog info updated successfully!!",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+        navigate(`/blog/${_id}`);
+      });
   };
 
   return (
