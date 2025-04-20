@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Wishlist = () => {
   const { user } = useAuth();
@@ -17,10 +18,17 @@ const Wishlist = () => {
 
   // Remove blog from wishlist
   const handleRemove = async (wishlistId) => {
-    const confirm = window.confirm(
-      "Are you sure you want to remove this from your wishlist?"
-    );
-    if (!confirm) return;
+    const confirmResult = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to undo this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, remove it!",
+    });
+
+    if (!confirmResult.isConfirmed) return;
 
     const res = await fetch(`http://localhost:5000/wishlist/${wishlistId}`, {
       method: "DELETE",
@@ -30,6 +38,16 @@ const Wishlist = () => {
       setWishlistBlogs((prev) =>
         prev.filter((item) => item._id !== wishlistId)
       );
+
+      Swal.fire({
+        title: "Removed!",
+        text: "The blog has been removed from your wishlist.",
+        icon: "success",
+        timer: 2000,
+        showConfirmButton: false,
+      });
+    } else {
+      Swal.fire("Error!", "Something went wrong. Try again.", "error");
     }
   };
 
