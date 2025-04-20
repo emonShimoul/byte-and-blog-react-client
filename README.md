@@ -1,12 +1,22 @@
-# React + Vite
+# Byte and Blog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live URL:** [https://byte-and-blog.web.app/](https://byte-and-blog.web.app/)
 
-Currently, two official plugins are available:
+## 📚 Project Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Byte and Blog** is a dynamic blogging platform that allows users to create, showcase, and manage their favorite blogs. Whether you're sharing a thoughtful opinion piece or curating a list of your must-read posts, this platform offers a seamless and interactive blogging experience.
 
-## Expanding the ESLint configuration
+## 🚀 Key Features
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ✍️ **Add Blog** – Easily compose and publish new blog entries.
+- 🌟 **Featured Blog** – Highlight selected blogs for greater visibility.
+- ❤️ **Add to Wishlist** – Save your favorite blogs to revisit later.
+- ❌ **Remove from Wishlist** – Manage your wishlist by removing blogs you no longer want to keep.
+
+## 📦 NPM Packages Used
+
+- [`firebase`](https://www.npmjs.com/package/firebase) – Firebase services for authentication and database.
+- [`react-icons`](https://www.npmjs.com/package/react-icons) – Popular icons library for easy-to-use icons in React.
+- [`react-router-dom`](https://www.npmjs.com/package/react-router-dom) – Routing library for React applications.
+- [`react-toastify`](https://www.npmjs.com/package/react-toastify) – Elegant toast notifications for feedback and alerts.
+- [`sweetalert2`](https://www.npmjs.com/package/sweetalert2) – Beautiful and customizable alert popups.
