@@ -7,7 +7,6 @@ import { handleWishlist } from "../utils/wishlist";
 const AllBlogs = () => {
   const [blogs, setBlogs] = useState([]);
   const { user } = useAuth();
-  // console.log(user);
 
   const [categories, setCategories] = useState([
     "All",

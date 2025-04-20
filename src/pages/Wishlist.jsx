@@ -7,7 +7,6 @@ const Wishlist = () => {
   const { user } = useAuth();
   const [wishlistBlogs, setWishlistBlogs] = useState([]);
 
-  // Fetch user's wishlist
   useEffect(() => {
     if (user?.email) {
       fetch(`http://localhost:5000/wishlist/${user.email}`)
@@ -16,7 +15,6 @@ const Wishlist = () => {
     }
   }, [user?.email]);
 
-  // Remove blog from wishlist
   const handleRemove = async (wishlistId) => {
     const confirmResult = await Swal.fire({
       title: "Are you sure?",

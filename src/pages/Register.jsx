@@ -11,7 +11,6 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // get form data
     const form = new FormData(e.target);
 
     const name = form.get("name");
@@ -28,7 +27,6 @@ const Register = () => {
       });
       return;
     }
-    // console.log(name, email, photo, password);
 
     createNewUser(email, password)
       .then((result) => {
@@ -37,7 +35,6 @@ const Register = () => {
         const dbUserInfo = { name, email, photo, createdAt };
         setUser(user);
 
-        // update user profile in the firebase
         updatedUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
@@ -47,7 +44,6 @@ const Register = () => {
             setError({ ...error, register: err.message });
           });
 
-        // save new user info to db
         fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {

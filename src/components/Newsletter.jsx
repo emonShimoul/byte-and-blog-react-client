@@ -11,9 +11,7 @@ const Newsletter = () => {
       return;
     }
 
-    // Simulate subscription success
     toast.success("Thank you for subscribing to our newsletter!");
-    console.log(email);
 
     e.target.reset();
   };

@@ -7,8 +7,6 @@ const BlogDetails = () => {
   const blogInfo = useLoaderData();
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState("");
-  //   const navigate = useNavigate();
-  //   console.log(blogInfo);
 
   useEffect(() => {
     const fetchComments = async () => {
@@ -28,7 +26,6 @@ const BlogDetails = () => {
     }
   }, [blogInfo?._id]);
 
-  //   handle comment submit
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
     if (!commentText.trim()) return;

@@ -23,7 +23,6 @@ const Navbar = () => {
       </li>
 
       {user && user?.email ? (
-        // Show Profile Picture & Logout Button when user is logged in
         <>
           <li>
             <img

@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 const UpdateBlog = () => {
   const blogDetails = useLoaderData();
   const navigate = useNavigate();
-  console.log(blogDetails);
   const categories = ["Technology", "Travel", "Food", "Lifestyle", "Education"];
 
   const { _id, title, category, imageUrl, longDesc, shortDesc } = blogDetails;
