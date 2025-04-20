@@ -21,22 +21,21 @@ const AllBlogs = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/blogs", {
+          params: {
+            category: selectedCategory !== "All" ? selectedCategory : "",
+            search,
+          },
+        });
+        setBlogs(response.data);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      }
+    };
     fetchBlogs();
   }, [selectedCategory, search]);
-
-  const fetchBlogs = async () => {
-    try {
-      const response = await axios.get("http://localhost:5000/blogs", {
-        params: {
-          category: selectedCategory !== "All" ? selectedCategory : "",
-          search,
-        },
-      });
-      setBlogs(response.data);
-    } catch (error) {
-      console.error("Error fetching blogs:", error);
-    }
-  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6">

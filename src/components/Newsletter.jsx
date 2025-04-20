@@ -19,22 +19,30 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="bg-gray-100 py-12 px-4">
-      <div className="max-w-xl mx-auto text-center">
-        <h2 className="text-2xl font-bold mb-4">Subscribe to our Newsletter</h2>
+    <section className="bg-gradient-to-br from-gray-100 via-white to-gray-100 py-20 px-6">
+      <div className="max-w-2xl mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">
+          Stay in the Loop
+        </h2>
+        <p className="text-gray-600 mb-8 text-lg">
+          Subscribe to our newsletter and never miss the latest tech trends, dev
+          tips, and exclusive content.
+        </p>
+
         <form
           onSubmit={handleSubscribe}
-          className="flex flex-col md:flex-row gap-4"
+          className="flex flex-col sm:flex-row items-center gap-4"
         >
           <input
             type="email"
             name="email"
-            placeholder="Enter your email"
-            className="border px-4 py-2 rounded flex-1"
+            placeholder="Enter your email address"
+            className="w-full sm:flex-1 px-5 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+            required
           />
           <button
             type="submit"
-            className="bg-blue-600 text-white px-6 py-2 rounded"
+            className="px-6 py-3 bg-indigo-600 text-white font-medium rounded-xl hover:bg-indigo-700 transition"
           >
             Subscribe
           </button>

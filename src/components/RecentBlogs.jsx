@@ -16,10 +16,16 @@ const RecentBlogs = () => {
 
   return (
     <div>
-      <section className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-20 text-center">
-        <h1 className="text-5xl font-bold mb-4">Welcome to Byte & Blog</h1>
-        <p className="text-lg">
-          Explore tech insights, dev tips & inspiring stories
+      <section className="bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white py-24 text-center relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-72 h-72 bg-purple-700 opacity-30 blur-3xl rounded-full animate-pulse -z-10" />
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-indigo-700 opacity-30 blur-3xl rounded-full animate-pulse delay-1000 -z-10" />
+
+        <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+          Welcome to <span className="text-indigo-400">Byte & Blog</span>
+        </h1>
+        <p className="text-lg md:text-xl text-gray-300 max-w-xl mx-auto">
+          Explore tech insights, dev tips & inspiring stories crafted for
+          curious minds.
         </p>
       </section>
 
