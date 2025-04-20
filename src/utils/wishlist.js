@@ -11,13 +11,16 @@ export const handleWishlist = async (blogId, userEmail) => {
   }
 
   try {
-    const res = await fetch("http://localhost:5000/wishlist", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ blogId, userEmail }),
-    });
+    const res = await fetch(
+      "https://byte-and-blog-node-server.vercel.app/wishlist",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ blogId, userEmail }),
+      }
+    );
 
     const data = await res.json();
 

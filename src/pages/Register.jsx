@@ -44,7 +44,7 @@ const Register = () => {
             setError({ ...error, register: err.message });
           });
 
-        fetch("http://localhost:5000/users", {
+        fetch("https://byte-and-blog-node-server.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

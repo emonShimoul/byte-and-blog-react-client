@@ -22,12 +22,15 @@ const AllBlogs = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/blogs", {
-          params: {
-            category: selectedCategory !== "All" ? selectedCategory : "",
-            search,
-          },
-        });
+        const response = await axios.get(
+          "https://byte-and-blog-node-server.vercel.app/blogs",
+          {
+            params: {
+              category: selectedCategory !== "All" ? selectedCategory : "",
+              search,
+            },
+          }
+        );
         setBlogs(response.data);
       } catch (error) {
         console.error("Error fetching blogs:", error);

@@ -12,7 +12,7 @@ const BlogDetails = () => {
     const fetchComments = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/comments/${blogInfo._id}`
+          `https://byte-and-blog-node-server.vercel.app/comments/${blogInfo._id}`
         );
         const data = await res.json();
         setComments(data);
@@ -38,19 +38,22 @@ const BlogDetails = () => {
       userEmail: user.email,
     };
 
-    const res = await fetch("http://localhost:5000/comments", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newComment),
-    });
+    const res = await fetch(
+      "https://byte-and-blog-node-server.vercel.app/comments",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newComment),
+      }
+    );
 
     if (res.ok) {
       setCommentText("");
       // Re-fetch comments
       const updated = await fetch(
-        `http://localhost:5000/comments/${blogInfo._id}`
+        `https://byte-and-blog-node-server.vercel.app/comments/${blogInfo._id}`
       );
       const data = await updated.json();
       setComments(data);

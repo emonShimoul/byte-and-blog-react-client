@@ -23,7 +23,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addBlog",
-        element: <AddBlog></AddBlog>,
+        element: (
+          <PrivateRoute>
+            <AddBlog></AddBlog>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/allBlogs",
@@ -37,7 +41,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/blog/${params.id}`),
+          fetch(
+            `https://byte-and-blog-node-server.vercel.app/blog/${params.id}`
+          ),
       },
       {
         path: "updateBlog/:id",
@@ -47,7 +53,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/blog/${params.id}`),
+          fetch(
+            `https://byte-and-blog-node-server.vercel.app/blog/${params.id}`
+          ),
       },
       {
         path: "/featuredBlogs",

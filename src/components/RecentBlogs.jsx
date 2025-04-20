@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { handleWishlist } from "../utils/wishlist";
+import useAuth from "../hooks/useAuth";
 
 const RecentBlogs = () => {
   const [recentBlogs, setRecentBlogs] = useState([]);
-
+  const { user } = useAuth();
   useEffect(() => {
     const fetchRecentBlogs = async () => {
-      const res = await fetch("http://localhost:5000/recentBlogs");
+      const res = await fetch(
+        "https://byte-and-blog-node-server.vercel.app/recentBlogs"
+      );
       const data = await res.json();
       setRecentBlogs(data);
     };
@@ -53,7 +57,10 @@ const RecentBlogs = () => {
                 >
                   Details
                 </Link>
-                <button className="text-red-500 hover:underline">
+                <button
+                  onClick={() => handleWishlist(blog._id, user?.email)}
+                  className="text-red-500 hover:underline"
+                >
                   Wishlist
                 </button>
               </div>
