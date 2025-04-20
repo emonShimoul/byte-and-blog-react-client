@@ -1,9 +1,10 @@
 import React from "react";
+import RecentBlogs from "../components/RecentBlogs";
 
 const HomePage = () => {
   return (
     <div>
-      <h2>HomePage</h2>
+      <RecentBlogs></RecentBlogs>
     </div>
   );
 };

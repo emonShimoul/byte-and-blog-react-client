@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
-import Swal from "sweetalert2";
+import { handleWishlist } from "../utils/wishlist";
 
 const AllBlogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -36,36 +36,6 @@ const AllBlogs = () => {
     } catch (error) {
       console.error("Error fetching blogs:", error);
     }
-  };
-
-  const handleWishlist = async (blogId, userEmail) => {
-    fetch("http://localhost:5000/wishlist", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ blogId, userEmail }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Success",
-            text: "Blog added to wishlist!",
-            icon: "success",
-            confirmButtonText: "Cool",
-          });
-          // navigate("/allBlogs");
-        } else {
-          Swal.fire({
-            icon: "info",
-            title: "Oops...",
-            text: data.message || "This blog is already in your wishlist!",
-          });
-        }
-      });
   };
 
   return (
