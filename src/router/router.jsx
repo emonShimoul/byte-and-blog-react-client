@@ -42,7 +42,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://byte-and-blog-node-server.vercel.app/blog/${params.id}`
+            `https://byte-and-blog-node-server.onrender.com/blog/${params.id}`
           ),
       },
       {
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://byte-and-blog-node-server.vercel.app/blog/${params.id}`
+            `https://byte-and-blog-node-server.onrender.com/blog/${params.id}`
           ),
       },
       {

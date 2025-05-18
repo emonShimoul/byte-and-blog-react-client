@@ -20,7 +20,7 @@ const Login = () => {
         const lastSignInTime = result?.user?.metadata?.lastSignInTime;
         const loginInfo = { email, lastSignInTime };
 
-        fetch(`https://byte-and-blog-node-server.vercel.app/users`, {
+        fetch(`https://byte-and-blog-node-server.onrender.com/users`, {
           method: "PATCH",
           headers: {
             "content-type": "application/json",

@@ -23,7 +23,7 @@ const AllBlogs = () => {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get(
-          "https://byte-and-blog-node-server.vercel.app/blogs",
+          "https://byte-and-blog-node-server.onrender.com/blogs",
           {
             params: {
               category: selectedCategory !== "All" ? selectedCategory : "",

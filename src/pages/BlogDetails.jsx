@@ -12,7 +12,7 @@ const BlogDetails = () => {
     const fetchComments = async () => {
       try {
         const res = await fetch(
-          `https://byte-and-blog-node-server.vercel.app/comments/${blogInfo._id}`
+          `https://byte-and-blog-node-server.onrender.com/comments/${blogInfo._id}`
         );
         const data = await res.json();
         setComments(data);
@@ -39,7 +39,7 @@ const BlogDetails = () => {
     };
 
     const res = await fetch(
-      "https://byte-and-blog-node-server.vercel.app/comments",
+      "https://byte-and-blog-node-server.onrender.com/comments",
       {
         method: "POST",
         headers: {
@@ -53,7 +53,7 @@ const BlogDetails = () => {
       setCommentText("");
       // Re-fetch comments
       const updated = await fetch(
-        `https://byte-and-blog-node-server.vercel.app/comments/${blogInfo._id}`
+        `https://byte-and-blog-node-server.onrender.com/comments/${blogInfo._id}`
       );
       const data = await updated.json();
       setComments(data);

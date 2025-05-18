@@ -9,7 +9,7 @@ const RecentBlogs = () => {
   useEffect(() => {
     const fetchRecentBlogs = async () => {
       const res = await fetch(
-        "https://byte-and-blog-node-server.vercel.app/recentBlogs"
+        "https://byte-and-blog-node-server.onrender.com/recentBlogs"
       );
       const data = await res.json();
       setRecentBlogs(data);

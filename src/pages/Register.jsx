@@ -44,7 +44,7 @@ const Register = () => {
             setError({ ...error, register: err.message });
           });
 
-        fetch("https://byte-and-blog-node-server.vercel.app/users", {
+        fetch("https://byte-and-blog-node-server.onrender.com/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

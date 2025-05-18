@@ -5,7 +5,7 @@ const FeaturedBlogs = () => {
   const [featuredBlogs, setFeaturedBlogs] = useState([]);
 
   useEffect(() => {
-    fetch("https://byte-and-blog-node-server.vercel.app/featured-blogs")
+    fetch("https://byte-and-blog-node-server.onrender.com/featured-blogs")
       .then((res) => res.json())
       .then((data) => setFeaturedBlogs(data));
   }, []);

@@ -10,7 +10,7 @@ const Wishlist = () => {
   useEffect(() => {
     if (user?.email) {
       fetch(
-        `https://byte-and-blog-node-server.vercel.app/wishlist/${user.email}`
+        `https://byte-and-blog-node-server.onrender.com/wishlist/${user.email}`
       )
         .then((res) => res.json())
         .then((data) => setWishlistBlogs(data));
@@ -31,7 +31,7 @@ const Wishlist = () => {
     if (!confirmResult.isConfirmed) return;
 
     const res = await fetch(
-      `https://byte-and-blog-node-server.vercel.app/wishlist/${wishlistId}`,
+      `https://byte-and-blog-node-server.onrender.com/wishlist/${wishlistId}`,
       {
         method: "DELETE",
       }

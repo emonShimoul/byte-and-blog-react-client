@@ -12,7 +12,7 @@ export const handleWishlist = async (blogId, userEmail) => {
 
   try {
     const res = await fetch(
-      "https://byte-and-blog-node-server.vercel.app/wishlist",
+      "https://byte-and-blog-node-server.onrender.com/wishlist",
       {
         method: "POST",
         headers: {

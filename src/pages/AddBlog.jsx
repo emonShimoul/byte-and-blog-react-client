@@ -26,7 +26,7 @@ const AddBlog = () => {
       blogEmail,
     };
 
-    fetch("https://byte-and-blog-node-server.vercel.app/blogs", {
+    fetch("https://byte-and-blog-node-server.onrender.com/blogs", {
       method: "POST",
       headers: {
         "content-type": "application/json",

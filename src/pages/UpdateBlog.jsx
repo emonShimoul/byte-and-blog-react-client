@@ -20,7 +20,7 @@ const UpdateBlog = () => {
 
     const updatedBlogInfo = { title, category, imageUrl, longDesc, shortDesc };
 
-    fetch(`https://byte-and-blog-node-server.vercel.app/blog/${_id}`, {
+    fetch(`https://byte-and-blog-node-server.onrender.com/blog/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
